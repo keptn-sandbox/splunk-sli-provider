@@ -1,1 +1,1 @@
-# kept-splunk-service
+# keptn-splunk-service
