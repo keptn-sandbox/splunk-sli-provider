@@ -1,0 +1,30 @@
+{
+  "data": {
+      "get-sli": {
+        "customFilters": [],
+        "end": "2021-01-15T15:09:45.000Z",
+        "indicators": [
+          "number_of_errors"
+        ],
+        "sliProvider": "splunk",
+        "start": "2021-01-15T15:04:45.000Z"
+      },
+      "labels": null,
+      "message": "",
+      "project": "fulltour",
+      "result": "",
+      "service": "newservice",
+      "stage": "qa",
+      "status": ""
+
+  },
+  "id": "7dbc47b8-a1db-4cb7-9f64-dd55d5563f67",
+  "shkeptncontext": "90051c47-edc7-4cb9-b32a-e4218ecf9ad7",
+  "shkeptnspecversion": "0.2.4",
+  "source": "lighthouse-service",
+  "specversion": "1.0",
+  "time": "2023-06-01T09:31:37.106185069Z",
+  "gitcommitid": "dbfa126d494e980a66a81180d24227ffff82ee04",
+  "type": "sh.keptn.event.get-sli.triggered"
+}
+

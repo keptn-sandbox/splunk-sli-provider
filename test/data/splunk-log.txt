@@ -1,0 +1,10 @@
+[Tue Jun 13 09:21:27 2023] [notice] workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[Tue Jun 13 09:21:27 2023] [error] mod_jk child workerEnv in error state 7
+[Tue Jun 13 09:21:27 2023] [notice] jk2_init() Found child 2028 in scoreboard slot 9
+[Tue Jun 13 09:21:27 2023] [notice] jk2_init() Found child 2027 in scoreboard slot 7
+[Tue Jun 13 09:21:27 2023] [notice] jk2_init() Found child 2029 in scoreboard slot 8
+[Tue Jun 13 09:21:27 2023] [notice] workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[Tue Jun 13 09:21:27 2023] [notice] workerEnv.init() ok /etc/httpd/conf/workers2.properties
+[Tue Jun 13 09:21:27 2023] [error] mod_jk child workerEnv in error state 6
+[Tue Jun 13 09:21:27 2023] [error] mod_jk child workerEnv in error state 6
+[Tue Jun 13 09:21:27 2023] [notice] jk2_init() Found child 2030 in scoreboard slot 6

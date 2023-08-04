@@ -1,0 +1,19 @@
+{{- if .Values.splunkservice.service.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "splunk-sli-provider.fullname" . }}
+  namespace: {{ .Values.namespace | default .Release.Namespace }}
+  labels:
+    {{- include "splunk-sli-provider.labels" . | nindent 4 }}
+spec:
+  type: NodePort
+  ports:
+    - name: default
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30036
+  selector:
+    {{- include "splunk-sli-provider.selectorLabels" . | nindent 4 }}
+  {{- end }}

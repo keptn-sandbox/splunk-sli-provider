@@ -1,0 +1,23 @@
+name: "Unit Tests"
+description: "Run unit tests using go"
+env:
+  GO111MODULE: "on"
+  GOPROXY: "https://proxy.golang.org"
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Go
+      uses: actions/setup-go@v3.3.1
+      with:
+        go-version-file: "go.mod"
+    - name: Install gotestsum
+      shell: bash
+      run: go install gotest.tools/gotestsum@latest
+    - name: Test
+      shell: bash
+      run: gotestsum --format testname --junitfile unittests_report.xml -- -race ./...
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always() && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+      with:
+        junit_files: "unittests_report.xml"

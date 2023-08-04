@@ -1,0 +1,14 @@
+{
+  "contenttype": "application/json",
+  "data": {
+    "project": "fulltour",
+    "service": "newservice",
+    "type": "splunk"
+  },
+  "source": "https://github.com/keptn/keptn/cli#configuremonitoring",
+  "specversion": "1.0",
+  "type": "sh.keptn.event.monitoring.configure",
+  "id": "7dbc47b8-a1db-4cb7-9f64-dd55d5563f67",
+  "shkeptncontext": "90051c47-edc7-4cb9-b32a-e4218ecf9ad7",
+  "shkeptnspecversion": "0.2.4"
+}

@@ -1,0 +1,2 @@
+DOCKER_ORGANIZATION="kuro08"
+IMAGE="splunk-sli-provider"

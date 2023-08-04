@@ -1,0 +1,22 @@
+{
+    "links":{
+       
+    },
+    "origin":"https://127.0.0.1:45191/services/savedsearches",
+    "updated":"2023-07-11T13:00:44+00:00",
+    "generator":{
+       "build":"de405f4a7979",
+       "version":"9.0.4"
+    },
+    "entry":[
+       
+    ],
+    "paging":{
+       "total":63,
+       "perPage":30,
+       "offset":0
+    },
+    "messages":[
+       
+    ]
+ }
