@@ -13,7 +13,7 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30036
+      nodePort: 30038
   selector:
     {{- include "splunk-sli-provider.selectorLabels" . | nindent 4 }}
   {{- end }}
