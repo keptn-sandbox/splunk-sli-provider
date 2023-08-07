@@ -61,7 +61,7 @@ func HandleConfigureMonitoringTriggeredEvent(ddKeptn *keptnv2.Keptn, incomingEve
 			// Starts polling for triggered alerts if configure monitoring is successful
 			alerts.FiringAlertsPoll(client, ddKeptn, keptn.KeptnOpts{}, envConfig)
 		}()
-	case !pollingSystemHasBeenStarted:
+	case pollingSystemHasBeenStarted:
 		logger.Info("Polling system has already been started")
 	default:
 		logger.Info("No alerts configured, no need to start the polling system")
