@@ -1,4 +1,4 @@
-# keptn-splunk-sli-provider
+# Splunk-sli-provider
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/AmadeusITGroup/keptn-splunk-sli-provider)
 [![Go Report Card](https://goreportcard.com/badge/github.com/AmadeusITGroup/keptn-splunk-sli-provider)](https://goreportcard.com/badge/github.com/AmadeusITGroup/keptn-splunk-sli-provider)
