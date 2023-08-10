@@ -112,7 +112,7 @@ func ProcessKeptnCloudEvent(ctx context.Context, event cloudevents.Event) error 
 	* parseKeptnCloudEventPayload(event, eventData)
 	*
 	* See https://github.com/keptn/spec/blob/0.2.0-alpha/cloudevents.md for more details of Keptn Cloud Events and their payload
-	* Also, see https://github.com/kuro-jojo/ echo-service/blob/a90207bc119c0aca18368985c7bb80dea47309e9/pkg/events.go as an example how to create your own CloudEvents
+	* Also, see https://github.com/keptn-sandbox/echo-service/blob/a90207bc119c0aca18368985c7bb80dea47309e9/pkg/events.go as an example how to create your own CloudEvents
 	**/
 
 	/**

@@ -1,2 +1,2 @@
-DOCKER_ORGANIZATION="kuro08"
+DOCKER_ORGANIZATION="ghcr.io/keptn-sandbox"
 IMAGE="splunk-sli-provider"

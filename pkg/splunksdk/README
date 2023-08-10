@@ -1,56 +1,58 @@
-# Splunk SDK for Go 
+# Splunk SDK for Go
 
 The Splunk Software Development Kit for Go contains functions designed to enable developers to communicate with Splunk Enterprise through the splunk API.
 
 :warning: This version is more focused on getting metrics from Splunk Enterprise.
+
 ## Getting started with the Splunk SDK for Go
 
 ### Requirements
+
 Here's what you need to get going with the Splunk Enterprise SDK for Go.
 
-* Go 1.18+
-    
-    The Splunk SDK for Go has been tested with Go version 1.18 to 1.20
+- Go 1.18+
 
-* Spunk Enterprise 9.0.4
+  The Splunk SDK for Go has been tested with Go version 1.18 to 1.20
 
-    The Splunk SDK has been tested with Splunk Enterprise 9.0.4
-If you haven't already installed Splunk Enterprise, download it [here](http://www.splunk.com/download). For more information, see the Splunk Enterprise Installation Manual.
+- Spunk Enterprise 9.0.4
 
+      The Splunk SDK has been tested with Splunk Enterprise 9.0.4
 
-### Install the SDK  
+  If you haven't already installed Splunk Enterprise, download it [here](http://www.splunk.com/download). For more information, see the Splunk Enterprise Installation Manual.
+
+### Install the SDK
+
 This sdk can be found as an external package.
 Use the following command to install the Splunk SDK for Go
 
     go get -u github.com/kuro-jojo/splunk-sdk-go
 
-### Example [![Go Reference](https://pkg.go.dev/badge/github.com/kuro-jojo/splunk-sdk-go.svg)](https://pkg.go.dev/github.com/kuro-jojo/splunk-sdk-go)
-
+### Example [![Go Reference](https://pkg.go.dev/badge/github.com/keptn-sandbox/splunk-sli-provider.svg)](https://pkg.go.dev/github.com/keptn-sandbox/splunk-sli-provider)
 
 You'll need at first a Splunk enterprise instance running. If you don't have one, you can run a local instance with a docker image.
 
-* For that you'll need *docker* to be installed
-* Then run a local Splunk enterprise instance (check it on [docker](https://hub.docker.com/r/splunk/splunk)) : 
+- For that you'll need _docker_ to be installed
+- Then run a local Splunk enterprise instance (check it on [docker](https://hub.docker.com/r/splunk/splunk)) :
 
          docker run -d -p 8000:8000 -e "SPLUNK_START_ARGS=--accept-license" -e "SPLUNK_PASSWORD=<password>" --name splunk splunk/splunk:latest
 
-
-    After the container starts up successfully and enters the "healthy" state, you should be able to access SplunkWeb at http://localhost:8000 with admin:\<password>.
+  After the container starts up successfully and enters the "healthy" state, you should be able to access SplunkWeb at http://localhost:8000 with admin:\<password>.
 
 #### Following are the different ways to connect to Splunk Enterprise
 
 > :warning: Avoid writing your sensitive information in your code in production. Use environment variables or a configuration file instead.
 
 **Using username and password**
+
 ```go
     import (
-        splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+        splunk "github.com/keptn-sandbox/keptn-splunk-sli-provider/pkg/splunksdk/client"
     )
     ...
         splunkInstance := "localhost" // or your splunk instance IP
         splunkServerPort := "8089" // by default
         splunkUsername := "admin"
-        splunkPassword := "myComplexPassword" // 
+        splunkPassword := "myComplexPassword" //
         client := splunk.NewBasicAuthenticatedClient(
         &http.Client{
             Timeout: time.Duration(60) * time.Second,
@@ -59,12 +61,14 @@ You'll need at first a Splunk enterprise instance running. If you don't have one
         splunkServerPort,
         splunkUsername,
         splunkPassword,
-        true, // if true : SSL verification disabled 
+        true, // if true : SSL verification disabled
 ```
+
 **Using token authentication**
+
 ```go
     import (
-        splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+        splunk "github.com/keptn-sandbox/keptn-splunk-sli-provider/pkg/splunksdk/client"
     )
     ...
         splunkInstance := "localhost"
@@ -77,12 +81,14 @@ You'll need at first a Splunk enterprise instance running. If you don't have one
         splunkInstance,
         splunkServerPort,
         splunkToken,
-        true, // if true : SSL verification disabled 
+        true, // if true : SSL verification disabled
 ```
+
 **Using authentication sessionKey**
+
 ```go
     import (
-        splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+        splunk "github.com/keptn-sandbox/keptn-splunk-sli-provider/pkg/splunksdk/client"
     )
     ...
         splunkInstance := "localhost"
@@ -95,16 +101,16 @@ You'll need at first a Splunk enterprise instance running. If you don't have one
         splunkInstance,
         splunkServerPort,
         splunkSessionKey,
-        true, // if true : SSL verification disabled 
+        true, // if true : SSL verification disabled
 ```
 
-#### Create a new job 
+#### Create a new job
 
 ```go
 ...
-import ( 
-    splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
-    job "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/jobs"    
+import (
+    splunk "github.com/keptn-sandbox/keptn-splunk-sli-provider/pkg/splunksdk/client"
+    job "github.com/keptn-sandbox/keptn-splunk-sli-provider/pkg/splunksdk/jobs"
     ...
 )
 ...
@@ -132,11 +138,12 @@ import (
 ```
 
 #### Retrieving the results of a job
+
 ```go
 ...
-import ( 
-    splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
-    job "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/jobs"
+import (
+    splunk "github.com/keptn-sandbox/keptn-splunk-sli-provider/pkg/splunksdk/client"
+    job "github.com/keptn-sandbox/keptn-splunk-sli-provider/pkg/splunksdk/jobs"
     ...
 )
 ...
@@ -152,11 +159,12 @@ import (
 ```
 
 #### Getting metric from a job
+
 ```go
 ...
-import ( 
-    splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
-    job "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/jobs"
+import (
+    splunk "github.com/keptn-sandbox/keptn-splunk-sli-provider/pkg/splunksdk/client"
+    job "github.com/keptn-sandbox/keptn-splunk-sli-provider/pkg/splunksdk/jobs"
     ...
 )
 ...
