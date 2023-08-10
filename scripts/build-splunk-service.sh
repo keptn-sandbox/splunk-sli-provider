@@ -7,6 +7,7 @@
 # -v: the version of the service to build and push
 # -l: show the logs of the splunk service pod
 # -b: build and push or not the docker image of the service
+# -t: archive the helm chart of the service and use it to release the service
 # Example: ./build-splunk-sli-provider.sh -d ../. -u dockerUsername -v 0.1.0 -l
 
 function show_usage {
@@ -17,6 +18,7 @@ function show_usage {
 
 	exit 1
 }
+
 function checking_pod_termination() {
 	local pod_name=""
 
@@ -61,6 +63,7 @@ dockerUsername=""
 serviceVersion=""
 show_logs=false
 build_and_push=false
+archive_chart=false
 
 # Parse script parameters
 while getopts ":d:u:v:l:b" opt; do
@@ -79,6 +82,9 @@ while getopts ":d:u:v:l:b" opt; do
 		;;
 	b)
 		build_and_push=true
+		;;
+	t)
+		archive_chart=true
 		;;
 	\?)
 		echo "Invalid option: -$OPTARG" >&2
@@ -107,10 +113,9 @@ if $build_and_push; then
 	# check if the docker registry is specified
 	if [[ -z $dockerUsername ]]; then
 		echo -e "The docker registry username is not specified.\n"
-		dockerUsername="keptncontrib"
 		show_usage
 	fi
-	docker build . -t $dockerUsername/splunk-sli-provider:$serviceVersion --network=host && docker push $dockerUsername/splunk-sli-provider:$serviceVersion
+	docker build . -t ghcr.io/$dockerUsername/splunk-sli-provider:$serviceVersion --network=host && docker push ghcr.io/$dockerUsername/splunk-sli-provider:$serviceVersion
 fi
 
 cd $servicePath # go to the splunk service directory
@@ -126,8 +131,12 @@ cd $servicePath # go to the splunk service directory
 
 # release the new chart
 chartName=splunk-sli-provider-$serviceVersion.tgz
-tar -czvf $chartName chart/
-helm upgrade --install -n keptn splunk-sli-provider $chartName --set splunkservice.existingSecret=splunk-sli-provider-secret --set splunkservice.image.tag=$serviceVersion
+if $archive_chart; then
+	tar -czvf $chartName chart/
+	helm upgrade --install -n keptn splunk-sli-provider $chartName --set splunkservice.existingSecret=splunk-sli-provider-secret --set splunkservice.image.tag=$serviceVersion
+else
+	helm upgrade --install -n keptn splunk-sli-provider https://github.com/keptn-sandbox/splunk-sli-provider/releases/download/$serviceVersion/$chartName --set splunkservice.existingSecret=splunk-service-secret --set splunkservice.image.tag=$serviceVersion
+fi
 
 if $show_logs; then
 	# show the logs of the splunk service pod
