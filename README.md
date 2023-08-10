@@ -79,8 +79,6 @@ _Note_: Make sure to replace `<VERSION>` with the version you want to install.``
   ```bash
   helm upgrade --install -n keptn splunk-sli-provider \
      https://github.com/keptn-sandbox/splunk-sli-provider/releases/download/<VERSION>/splunk-sli-provider-<VERSION>.tgz \
-     --set splunkservice.spHost="<SPLUNK_HOST>" \
-     --set splunkservice.spPort=<SPLUNK_PORT>\
      --set splunkservice.existingSecret=<mysecretname>
   ```
 
