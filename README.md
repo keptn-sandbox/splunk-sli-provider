@@ -111,8 +111,6 @@ For splunk credentials :
 # Splunk session if authentication by session key is used
 - name: SP_SESSION_KEY ""
   value: ""
-- name: SP_HOST ""
-  value: ""
 ```
 
 For customizing the alerts set when receiving a configure monitoring event :
