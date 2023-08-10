@@ -6,6 +6,7 @@
 # -u: the docker registry username
 # -v: the version of the service to build and push
 # -l: show the logs of the splunk service pod
+# -b: build and push or not the docker image of the service
 # Example: ./build-splunk-sli-provider.sh -d ../. -u dockerUsername -v 0.1.0 -l
 
 function show_usage {
@@ -59,9 +60,10 @@ servicePath=""
 dockerUsername=""
 serviceVersion=""
 show_logs=false
+build_and_push=false
 
 # Parse script parameters
-while getopts ":d:u:v:l" opt; do
+while getopts ":d:u:v:l:b" opt; do
 	case "$opt" in
 	d)
 		servicePath="$OPTARG"
@@ -74,6 +76,9 @@ while getopts ":d:u:v:l" opt; do
 		;;
 	l)
 		show_logs=true
+		;;
+	b)
+		build_and_push=true
 		;;
 	\?)
 		echo "Invalid option: -$OPTARG" >&2
@@ -98,16 +103,19 @@ if [[ -z $serviceVersion ]]; then
 	serviceVersion="latest"
 fi
 
-# Check if required options are provided
-if [[ -z "$dockerUsername" ]]; then
-	echo -e "Missing required arguments.\n"
-	show_usage
+if $build_and_push; then
+	# check if the docker registry is specified
+	if [[ -z $dockerUsername ]]; then
+		echo -e "The docker registry username is not specified.\n"
+		dockerUsername="keptncontrib"
+		show_usage
+	fi
+	docker build . -t $dockerUsername/splunk-sli-provider:$serviceVersion --network=host && docker push $dockerUsername/splunk-sli-provider:$serviceVersion
 fi
 
 cd $servicePath # go to the splunk service directory
 
 # build and push a new docker image of the service
-docker build . -t $dockerUsername/splunk-sli-provider:$serviceVersion --network=host && docker push $dockerUsername/splunk-sli-provider:$serviceVersion
 
 # remove an existing helm chart of the splunk service
 # if [[ $(get_splunk_pod) ]]; then
@@ -117,7 +125,7 @@ docker build . -t $dockerUsername/splunk-sli-provider:$serviceVersion --network=
 # fi
 
 # release the new chart
-chartName=splunk-sli-provider.tgz
+chartName=splunk-sli-provider-$serviceVersion.tgz
 tar -czvf $chartName chart/
 helm upgrade --install -n keptn splunk-sli-provider $chartName --set splunkservice.existingSecret=splunk-sli-provider-secret --set splunkservice.image.tag=$serviceVersion
 

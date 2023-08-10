@@ -1,8 +1,8 @@
 # Splunk-sli-provider
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/AmadeusITGroup/keptn-splunk-sli-provider)
-[![Go Report Card](https://goreportcard.com/badge/github.com/AmadeusITGroup/keptn-splunk-sli-provider)](https://goreportcard.com/badge/github.com/AmadeusITGroup/keptn-splunk-sli-provider)
-![GitHub release (latest by SemVer including pre-releases)](https://img.shields.io/github/downloads-pre/AmadeusITGroup/keptn-splunk-sli-provider/latest/total)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/keptn-sandbox/splunk-sli-provider)
+[![Go Report Card](https://goreportcard.com/badge/github.com/keptn-sandbox/splunk-sli-provider)](https://goreportcard.com/badge/github.com/keptn-sandbox/splunk-sli-provider)
+![GitHub release (latest by SemVer including pre-releases)](https://img.shields.io/github/downloads-pre/keptn-sandbox/splunk-sli-provider/latest/total)
 
 This implements the `splunk-sli-provider` that integrates the [splunk enterprise](https://en.wikipedia.org/wiki/splunk) platform with Keptn. This enables you to use splunk as the source for the Service Level Indicators ([SLIs](https://keptn.sh/docs/0.19.x/reference/files/sli/)) that are used for Keptn [Quality Gates](https://keptn.sh/docs/concepts/quality_gates/). The `splunk-sli-provider` can also use splunk for monitoring your microservice through saved searches alerts and triggering remediation sequences.
 If you want to learn more about Keptn visit [keptn.sh](https://keptn.sh)
@@ -13,9 +13,9 @@ Please always double-check the version of Keptn you are using compared to the ve
 
 | Keptn Version | [splunk-sli-provider Docker Image](https://github.com/keptn-sandbox/splunk-sli-provider/pkgs/container/splunk-sli-provider) |
 | :-----------: | :-------------------------------------------------------------------------------------------------------------------------: |
-|    0.18.x     |                                       AmadeusITGroup/keptn-splunk-sli-provider:0.1.x                                        |
-|    0.19.x     |                                       AmadeusITGroup/keptn-splunk-sli-provider:0.1.x                                        |
-|     1.x.y     |                                       AmadeusITGroup/keptn-splunk-sli-provider:0.1.x                                        |
+|    0.18.x     |                                           keptn-sandbox/splunk-sli-provider:0.1.x                                           |
+|    0.19.x     |                                           keptn-sandbox/splunk-sli-provider:0.1.x                                           |
+|     1.x.y     |                                           keptn-sandbox/splunk-sli-provider:0.1.x                                           |
 
 ## Installation instructions
 
@@ -47,7 +47,7 @@ _Note_: Make sure to replace `<VERSION>` with the version you want to install.``
   the `keptn` namespace.
   ```bash
   helm upgrade --install -n keptn splunk-sli-provider \
-     https://github.com/AmadeusITGroup/keptn-splunk-sli-provider/releases/download/<VERSION>/splunk-sli-provider-<VERSION>.tgz \
+     https://github.com/keptn-sandbox/splunk-sli-provider/releases/download/<VERSION>/splunk-sli-provider-<VERSION>.tgz \
      --set splunkservice.spHost="<SPLUNK_HOST>" \
      --set splunkservice.spPort=<SPLUNK_PORT>\
      --set splunkservice.spUsername="<SPLUNK_USERNAME>" \
@@ -66,7 +66,7 @@ _Note_: Make sure to replace `<VERSION>` with the version you want to install.``
   SPLUNK_NAMESPACE=<SPLUNK_NAMESPACE>
 
   helm upgrade --install -n ${KEPTN_NAMESPACE} splunk-sli-provider \
-     https://github.com/AmadeusITGroup/keptn-splunk-sli-provider/releases/download/<VERSION>/splunk-sli-provider-<VERSION>.tgz \
+     https://github.com/keptn-sandbox/splunk-sli-provider/releases/download/<VERSION>/splunk-sli-provider-<VERSION>.tgz \
      --set splunkservice.spHost="<SPLUNK_HOST>" \
      --set splunkservice.spPort=<SPLUNK_PORT>\
      --set splunkservice.spUsername="<SPLUNK_USERNAME>" \
@@ -78,7 +78,7 @@ _Note_: Make sure to replace `<VERSION>` with the version you want to install.``
 
   ```bash
   helm upgrade --install -n keptn splunk-sli-provider \
-     https://github.com/AmadeusITGroup/keptn-splunk-sli-provider/releases/download/<VERSION>/splunk-sli-provider-<VERSION>.tgz \
+     https://github.com/keptn-sandbox/splunk-sli-provider/releases/download/<VERSION>/splunk-sli-provider-<VERSION>.tgz \
      --set splunkservice.spHost="<SPLUNK_HOST>" \
      --set splunkservice.spPort=<SPLUNK_PORT>\
      --set splunkservice.existingSecret=<mysecretname>
@@ -185,7 +185,7 @@ helm upgrade -n keptn --set image.tag=$VERSION splunk-sli-provider chart/
 
 # or via an official release
 helm upgrade --install -n keptn splunk-sli-provider \
-   https://github.com/AmadeusITGroup/keptn-splunk-sli-provider/releases/download/$VERSION/splunk-sli-provider-$VERSION.tgz \
+   https://github.com/keptn-sandbox/splunk-sli-provider/releases/download/$VERSION/splunk-sli-provider-$VERSION.tgz \
    --reuse-values
 ```
 

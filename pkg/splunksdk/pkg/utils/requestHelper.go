@@ -4,7 +4,7 @@ import (
 	"net"
 	"strings"
 
-	splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
+	splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
 )
 
 func ValidateSearchQuery(searchQuery string) string {

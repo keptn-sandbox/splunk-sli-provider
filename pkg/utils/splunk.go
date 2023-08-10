@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
-	splunktest "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/pkg/utils"
+	splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+	splunktest "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/pkg/utils"
 
 	logger "github.com/sirupsen/logrus"
 )

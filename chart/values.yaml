@@ -1,6 +1,6 @@
 splunkservice:
   image:
-    repository: ghcr.io/ecl2022pai01/splunk-service # Container Image Name  logLevel: info
+    repository: ghcr.io/keptn-sandbox/splunk-service # Container Image Name  logLevel: info
     pullPolicy: Always # Kubernetes Image Pull Policy
     tag: "" # Container Tag
   # Set to SP_HOST in the chart's Secret

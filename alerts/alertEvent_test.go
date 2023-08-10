@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	splunktest "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/pkg/utils"
-	"github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/utils"
+	splunktest "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/pkg/utils"
+	"github.com/keptn-sandbox/splunk-sli-provider/pkg/utils"
 
 	cloudevents "github.com/cloudevents/sdk-go/v2"
 	"github.com/cloudevents/sdk-go/v2/event/datacodec"

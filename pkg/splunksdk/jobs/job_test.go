@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
-	"github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/pkg/utils"
-	splunkTest "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/pkg/utils"
+	splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+	"github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/pkg/utils"
+	splunkTest "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/pkg/utils"
 
 	"github.com/joho/godotenv"
 )

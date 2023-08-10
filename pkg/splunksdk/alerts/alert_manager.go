@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
+	splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
 )
 
 func PostAlert(client *splunk.SplunkClient, spAlert *AlertRequest) (*http.Response, error) {

@@ -12,9 +12,9 @@ import (
 	"testing"
 	"time"
 
-	splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
-	splunktest "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/pkg/utils"
-	"github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/utils"
+	splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+	splunktest "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/pkg/utils"
+	"github.com/keptn-sandbox/splunk-sli-provider/pkg/utils"
 
 	cloudevents "github.com/cloudevents/sdk-go/v2" // make sure to use v2 cloudevents here
 	"github.com/cloudevents/sdk-go/v2/event/datacodec"

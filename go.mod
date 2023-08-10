@@ -1,4 +1,4 @@
-module github.com/AmadeusITGroup/keptn-splunk-sli-provider
+module github.com/keptn-sandbox/splunk-sli-provider
 
 go 1.20
 

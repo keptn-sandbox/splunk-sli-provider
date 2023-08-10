@@ -6,10 +6,10 @@ import (
 	"log"
 	"strings"
 
-	"github.com/AmadeusITGroup/keptn-splunk-sli-provider/alerts"
-	splunkalerts "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/alerts"
-	splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
-	"github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/utils"
+	"github.com/keptn-sandbox/splunk-sli-provider/alerts"
+	splunkalerts "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/alerts"
+	splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+	"github.com/keptn-sandbox/splunk-sli-provider/pkg/utils"
 
 	cloudevents "github.com/cloudevents/sdk-go/v2" // make sure to use v2 cloudevents here
 	api "github.com/keptn/go-utils/pkg/api/utils"

@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/alerts"
-	splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
-	"github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/utils"
+	"github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/alerts"
+	splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+	"github.com/keptn-sandbox/splunk-sli-provider/pkg/utils"
 
 	keptnv1 "github.com/keptn/go-utils/pkg/lib"
 	keptnv2 "github.com/keptn/go-utils/pkg/lib/v0_2_0"

@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"net/url"
 
-	splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
-	utils "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/pkg/utils"
+	splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+	utils "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/pkg/utils"
 )
 
 func PostJob(client *splunk.SplunkClient, spRequest *SearchRequest) (*http.Response, error) {

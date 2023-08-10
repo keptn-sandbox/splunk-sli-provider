@@ -44,7 +44,7 @@ You'll need at first a Splunk enterprise instance running. If you don't have one
 **Using username and password**
 ```go
     import (
-        splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
+        splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
     )
     ...
         splunkInstance := "localhost" // or your splunk instance IP
@@ -64,7 +64,7 @@ You'll need at first a Splunk enterprise instance running. If you don't have one
 **Using token authentication**
 ```go
     import (
-        splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
+        splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
     )
     ...
         splunkInstance := "localhost"
@@ -82,7 +82,7 @@ You'll need at first a Splunk enterprise instance running. If you don't have one
 **Using authentication sessionKey**
 ```go
     import (
-        splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
+        splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
     )
     ...
         splunkInstance := "localhost"
@@ -103,8 +103,8 @@ You'll need at first a Splunk enterprise instance running. If you don't have one
 ```go
 ...
 import ( 
-    splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
-    job "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/jobs"    
+    splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+    job "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/jobs"    
     ...
 )
 ...
@@ -135,8 +135,8 @@ import (
 ```go
 ...
 import ( 
-    splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
-    job "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/jobs"
+    splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+    job "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/jobs"
     ...
 )
 ...
@@ -155,8 +155,8 @@ import (
 ```go
 ...
 import ( 
-    splunk "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/client"
-    job "github.com/AmadeusITGroup/keptn-splunk-sli-provider/pkg/splunksdk/jobs"
+    splunk "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/client"
+    job "github.com/keptn-sandbox/splunk-sli-provider/pkg/splunksdk/jobs"
     ...
 )
 ...
