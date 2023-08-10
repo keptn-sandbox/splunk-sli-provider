@@ -93,7 +93,7 @@ _Note_: Make sure to replace `<VERSION>` with the version you want to install.``
 ### Advanced Options
 
 You can customize splunk-sli-provider with the following environment variables:
-For splunk credentials :
+For splunk credentials:
 
 ```yaml
 # Splunk host
@@ -113,19 +113,19 @@ For splunk credentials :
   value: ""
 ```
 
-For customizing the alerts set when receiving a configure monitoring event :
+For customizing the alerts set when receiving a configure monitoring event:
 
 ```yaml
-# The period during which the triggering of the alert is suppressed after it is already triggered. By default to "3m" (3 minutes)
+# The period during which the triggering of the alert is suppressed after it is already triggered. By default, to "3m" (3 minutes)
 - name: ALERT_SUPPRESS_PERIOD
   value: "{{ .Values.splunkservice.alertSuppressPeriod }}"
 # A splunk expression specifying the frequency for the execution of the saved searches. By default to "*/1 * * * *" (every minute)
 - name: CRON_SCHEDULE
   value: "{{ .Values.splunkservice.cronSchedule }}"
-# The earliest time for the saved search. By default to "-3m"
+# The earliest time for the saved search. By default, to "-3m"
 - name: DISPATCH_EARLIEST_TIME
   value: "{{ .Values.splunkservice.dispatchEarliestTime }}"
-# The latest time for the saved search. By default to "now"
+# The latest time for the saved search. By default, to "now"
 - name: DISPATCH_LATEST_TIME
   value: "{{ .Values.splunkservice.dispatchLatestTime }}"
 # The coma separated list of actions to perform after the triggering of alerts. By default to "". But can be "webhook"
@@ -181,7 +181,7 @@ Adapt and use the following command in case you want to up- or downgrade your in
 ```console
 helm upgrade -n keptn --set image.tag=$VERSION splunk-sli-provider chart/
 
-# or via an official release
+# Or via an official release
 helm upgrade --install -n keptn splunk-sli-provider \
    https://github.com/keptn-sandbox/splunk-sli-provider/releases/download/$VERSION/splunk-sli-provider-$VERSION.tgz \
    --reuse-values
@@ -237,16 +237,16 @@ gotestsum --format standard-verbose -- -timeout=120m  ./test/e2e/...
 
 - The splunk-sli-provider allows keptn to use splunk as its SLI-provider for the quality gates. For an evaluation stage, when an sh.keptn.event.getsli.triggered is received by the splunk-sli-provider, that latter sends an sh.keptn.event.getsli.started, executes de splunk searches of the indicators and sends an sh.keptn.event.getsli.finished containing the results for the indicators.
   In order for it to work properly, the slo.yaml and sli.yaml should be uploaded and the monitoring should be configured for the service as explained in the installation section.
-- When the timeframe for the get-sli event is not specified in the splunk searches in sli.yaml (via "earliest" and "latest"), the default timeframe used for all the SLIs is the one specified in the shipyard.yaml or in the keptn bridge when only the evaluation is done. If "ealiest" and "latest" are specified in the splunk searches in sli.yaml, they will overwrite the default timeframe.
+- When the timeframe for the get-sli event is not specified in the splunk searches in sli.yaml (via "earliest" and "latest"), the default timeframe used for all the SLIs is the one specified in the shipyard.yaml or in the keptn bridge when only the evaluation is done. If "earliest" and "latest" are specified in the splunk searches in sli.yaml, they will overwrite the default timeframe.
   :warning: In case you use custom timeframes in your splunk searches, they will overwrite the timeframe from the shipyard or keptn bridge. The timeframe displayed in the keptn bridge is not correct. It's the timeframe from the shipyard or the keptn bridge that is displayed in the bridge.
 
 ### Monitoring and Remediation
 
 - :warning: For using this functionality, AVOID using comas "," in the indicator names within the sli.yaml file.
-- The splunk-sli-provider allows keptn to use splunk in order to monitor the deployed service. Executing the command "keptn configure monitoring splunk --project=<project> --service=<service>" sends an sh.keptn.configure-monitoring.triggered event. Whenever the splunk-sli-provider receives that event, it sends the corresponding .started event, creates splunk alerts from the SLIs and SLOs for the stages where slo.yaml and remediation.yaml files are defined and finally sends the corresponding .finished event to keptn. The splunk alerts created are saved searches that run in a periodic way and are in a fired state whenever the alert conditions are met. See the advanced options section for more information.
-- The splunk-sli-provider checks periodically whether or not one of the keptn splunk alerts is triggered. Once it detects a triggered keptn alert, an sh.keptn.event.remediation.triggered event is sent to keptn with the details concerning the problem. Keptn then executes the remediation actions specified in the remediation file.
+- The splunk-sli-provider allows keptn to use splunk to monitor the deployed service. Executing the command "keptn configure monitoring splunk --project=<project> --service=<service>" sends an sh.keptn.configure-monitoring.triggered event. Whenever the splunk-sli-provider receives that event, it sends the corresponding started event, creates splunk alerts from the SLIs and SLOs for the stages where slo.yaml and remediation.yaml files are defined and finally sends the corresponding .finished event to keptn. The splunk alerts created are saved searches that run in a periodic way and are in a fired state whenever the alert conditions are met. See the advanced options section for more information.
+- The splunk-sli-provider checks periodically whether one of the keptn splunk alerts is triggered. Once it detects a triggered keptn alert, an sh.keptn.event.remediation.triggered event is sent to keptn with the details concerning the problem. Keptn then executes the remediation actions specified in the remediation file.
 - Splunk alerts are deleted and recreated for a particular service in a particular project whenever the keptn configure monitoring command is executed for splunk. This way, it is possible to UPDATE the splunk alerts when changes have been made regarding the sli.yaml and slo.yaml.
-- If you only want to DELETE the keptn splunk alerts concerning a particular service in a particular project without updating them, just delete one of these : the remediation file, the sli file, the slo file, the service OR the entire project and then execute :
+- If you only want to DELETE the keptn splunk alerts concerning a particular service in a particular project without updating them, just delete one of these: the remediation file, the sli file, the slo file, the service OR the entire project and then execute :
 
 ```bash
 keptn configure monitoring splunk --project <project>  --service <service>
@@ -267,7 +267,7 @@ When writing code, it is recommended to follow the coding style suggested by the
 
 ### Where to start
 
-If you don't care about the details, your first entrypoint is [handler](eventhandlers.go). Within this folder
+If you don't care about the details, your first entry point is [handler](eventhandlers.go). Within this folder
 you can add implementation for pre-defined Keptn Cloud events.
 
 To better understand all variants of Keptn CloudEvents, please look at the [Keptn Spec](https://github.com/keptn/spec).
